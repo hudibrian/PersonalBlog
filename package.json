@@ -1,22 +1,13 @@
 {
-  "name": "BrianHudi.org",
+  "name": "headless-wp-local-api",
   "version": "1.0.0",
-  "description": "My blog built using react and headless wordpress",
-  "main": "index.js",
+  "repository": "git@github.com:postlight/headless-wp-starter.git",
+  "author": "Postlight",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
-    "start": "parcel ./src/index.html"
-  },
-  "keywords": [
-    "parcel",
-    "react"
-  ],
-  "author": "Brian Hudi <bshudi@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.6.1"
+    "preinstall": "chmod +x install.sh && chmod +x mysql_config.sh && ./install.sh",
+    "postinstall": "robo wordpress:setup",
+    "start": "wp server --host=0.0.0.0"
   }
 }
